@@ -6,6 +6,7 @@ import { catchError, Observable, retry, throwError } from 'rxjs';
 import { enviroment } from 'src/enviroments/enviroment';
 import { LoginUser } from '../interfaces/loginUser';
 import { DownloadImage } from '../interfaces/downloadImage';
+import { RegisterRevenues } from '../interfaces/registerRevenues';
 
 @Injectable({
   providedIn: 'root'
@@ -72,6 +73,15 @@ export class ApiService {
           }else {
             this.utilsService.showError('Ocorreu um erro no servidor, tente mais tarde!')
           }
+          return throwError(() => err)
+        })
+      )
+  }
+
+  registerRevenues(revenue: any): Observable<RegisterRevenues> {
+    return this.httpClient.post<RegisterRevenues>(enviroment.BASE_URL + '/auth/revenues', revenue)
+      .pipe(
+        catchError((err) => {
           return throwError(() => err)
         })
       )

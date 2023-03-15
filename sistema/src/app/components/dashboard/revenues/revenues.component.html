@@ -1,6 +1,6 @@
 <div class="container">
-  <!-- ABRE COMPONENTE CARD-VIEW AQUI -->
-    <!-- COMPONENTE MONTHS-REVENUES AQUI -->
+  <app-card-view>
+    <app-month-revenues></app-month-revenues>
     <div>
       <br>
       <label class="mat-label"><strong>Encontrar Receita:</strong></label>
@@ -11,14 +11,15 @@
     </div>
     <button
       color="primary"
-      class="btn-default btn btn-primary">
+      class="btn-default btn btn-primary"
+      (click)="openDialog()">
       Adicionar Receita
     </button>
     <div class="center custom-position">
       <!-- MAT-SPINNER AQUI -->
     </div>
     <div class="display"></div>
-    <table
+    <!-- <table
       mat-table
       class="mat-elevation-z8"
     >
@@ -61,7 +62,7 @@
 
       <tr mat-header-row *matHeaderRowDef=""></tr>
       <tr mat-row *matRowDef="let row; columns: "></tr>
-    </table>
+    </table> -->
 
     <!-- <mat-paginator
       #paginator
@@ -70,12 +71,12 @@
       [pageSizeOptions]="[1, 2, 4]"
     >
     </mat-paginator> -->
-    <ng-container>
+    <!-- <ng-container>
       <div class="container">
         <div class="center">
           <span>Você ainda não cadastrou receitas para esse mês.</span>
         </div>
       </div>
-    </ng-container>
-  <!-- FECHA COMPONENTE CARD-VIEW AQUI -->
+    </ng-container> -->
+  </app-card-view>
 </div>
